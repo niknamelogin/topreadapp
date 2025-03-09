@@ -6,7 +6,7 @@
 
 ## 
 
-`composer insatll`
+`composer install`
 
 `php artisan migrate`
 

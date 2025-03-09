@@ -11,19 +11,11 @@ class TopReadController extends Controller {
 
     public function index(TopReadRequest $request) {
 
-        // $params = $request->only(['author', 'title', 'offset', 'isbn']);
         $params = $request->only(['author', 'title', 'offset']);
 
-if( $request->has('isbn')) {
-    $params['isbn'] = implode(';', $request->input('isbn'));
-}
-
-
-        dump($params);
-        // dd($params);
-
-
-
+        if ($request->has('isbn')) {
+            $params['isbn'] = implode(';', $request->input('isbn'));
+        }
 
         $params['api-key'] = config('services.NYB.api-key');
         $response          = Http::get(self::BOOKAPIBASEURL . self::BESTSELLERSURL, $params);
