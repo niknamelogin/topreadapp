@@ -19,11 +19,11 @@ class TopReadRequest extends FormRequest {
      */
     public function rules(): array {
         return [
-            'author' => 'string',
-            'isbn'   => 'array',
+            'author' => 'nullable|string',
+            'isbn'   => 'nullable|array',
             'isbn.*' => 'string',
-            'title'  => 'string',
-            'offset' => 'integer|min:0',
+            'title'  => 'nullable|string',
+            'offset' => 'nullable|integer|min:0',
         ];
     }
 }
